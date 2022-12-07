@@ -1,4 +1,4 @@
-specialization_file = {
+specializationDict = {
 'greeting': {
 'patterns': ['Hi', 'Hello', 'Hey', 'Howdy'],
 'responses': ['Hi there!', 'Hello!', 'Hey there!', 'Greetings!'],
