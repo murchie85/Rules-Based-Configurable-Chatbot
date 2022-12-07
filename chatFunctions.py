@@ -23,10 +23,15 @@ def match_sentence_pattern(user_input,patternDict):
 	#loop through the sentence patterns and associated functions
 	for topic in patternDict:
 		values = patternDict[topic]
+		
 		#check if the user input matches the sentence pattern
-		if re.match(values['patterns'], user_input):
-			#return the associated function
-			return values['responses'],values['function']
+		for sentence in values['patterns']:
+			# Compile a regular expression that will match the sentence, ignoringcase and punctuation
+			regex = re.compile(f"^{re.escape(user_input)}$", re.IGNORECASE)
+			if regex.match(sentence):
+				#return the associated function
+				return values['responses'],values['function']
+
 
 #define a function to call the associated function
 def call_associated_function(user_input,patternDict):
